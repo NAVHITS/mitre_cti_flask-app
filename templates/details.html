@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Exo:200,500);
+            @import "http://weloveiconfonts.com/api/?family=entypo";
+            [class*="entypo-"]:before {
+            font-family: "entypo", sans-serif;
+            }
+
+            html, body {
+            background: #fff;
+            padding: 60px 15px;
+            color: #777;
+            }
+
+            .container{
+            padding-top:10px;
+            }
+
+            ol {
+            margin-bottom: 50px;
+            }
+
+            h1 {
+            letter-spacing: -0.05em;
+            font-family: "Exo", sans-serif;
+            color: #3f5b80;
+            }
+
+            .heading {
+            font-family: "Exo", sans-serif;
+            font-size: 40px;
+            padding-top:20px;
+            padding-left: 30px;
+            color: #fff;
+            }
+
+            p {
+            font-family: "Open Sans", sans-serif;
+            line-height: 1.5em;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 0;
+            }
+            p:last-child {
+            margin-bottom: 40px;
+            }
+
+            code {
+            background: #f8f8f8;
+            color: #d64f9b;
+            border: 1px solid #eee;
+            padding: 2px;
+            border-radius: 3px;
+            }
+
+            a {
+            color: #f46830;
+            text-decoration: none;
+            }
+            a:hover {
+            color: #4fb3e8;
+            -webkit-transition: all .1s ease-in-out;
+            -moz-transition: all .1s ease-in-out;
+            -ms-transition: all .1s ease-in-out;
+            -o-transition: all .1s ease-in-out;
+            transition: all .1s ease-in-out;
+            }
+
+            nav {
+            float: left;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #3b5a77;
+            position: fixed;
+            padding-left: 30px;
+            }
+  
+        </style>
+    </head>
+    <body>
+        <nav class="nav">
+            <h2 class="heading"><a href={{result[0]['external_references'][0]['url']}}>{{aid}}</a></h2>
+          </nav>
+          <div class="container">
+            <article>
+                <h1 id="section1">Kill Chain Phases</h1>
+                
+                <p><a href=/tactics/{{result[0]['kill_chain_phases'][0]['phase_name']}}>{{kc}}</a></p>
+            
+                
+            </article>
+            <article>
+                <h1 id="section1">Description</h1>
+                <p>{{result[0]['description']}}</p>
+            
+                
+            </article>
+            
+            <article>
+                <h1 id="section2">Detection</h1>
+                <p>{{result[0]['x_mitre_detection']}}</p>
+                </article>
+            
+            <article>
+                <h1 id="section3">Data Sources</h1>
+                <p>{{', '.join(result[0]['x_mitre_data_sources'])}}</p>
+                
+            </article>
+            
+            <article>
+                <h1 id="section4">Mitigations</h1>
+                {% for x in m %}
+                <p style="font-weight: bold;">{{x['name']}}</p>
+                <p>{{x['description']}}</p>
+                {% endfor %}
+            </article>
+        </div>
+    </body>
+</html>

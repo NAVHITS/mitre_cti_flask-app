@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Exo:200,500);
+            @import "http://weloveiconfonts.com/api/?family=entypo";
+            [class*="entypo-"]:before {
+            font-family: "entypo", sans-serif;
+            }
+
+            html, body {
+                background-color:#F2F2F2;
+            font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+            margin:0;
+            padding:0;
+            height:100%;
+            width:100%;
+            text-align:center;
+            color:#404040;
+            position:relative;
+            }
+
+            .container:after{
+            content:"";
+            clear:both;
+            display:table;
+            padding-top: 10px;
+            }
+
+            .container{
+                margin-top: 150px;
+                padding:10px 0px 10px 10px;
+            }
+
+            ol {
+            margin-bottom: 50px;
+            }
+
+            h1 {
+            letter-spacing: -0.05em;
+            font-family: "Exo", sans-serif;
+            color: #3f5b80;
+            }
+
+            .heading {
+            font-family: "Exo", sans-serif;
+            font-size: 40px;
+            padding-top:20px;
+            padding-left: 30px;
+            color: #fff;
+            }
+
+            p {
+            font-family: "Open Sans", sans-serif;
+            line-height: 1.5em;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 0;
+            }
+            p:last-child {
+            margin-bottom: 40px;
+            }
+
+            code {
+            background: #f8f8f8;
+            color: #d64f9b;
+            border: 1px solid #eee;
+            padding: 2px;
+            border-radius: 3px;
+            }
+
+            .box{
+            float:left;
+            width:200px;
+            height:200px;
+            padding:10px 0px 10px 10px;
+            margin:0 5px 5px 0;
+            background-color:#CCCCCC;
+            -webkit-transition:all 1.0s ease;
+            -moz-transition:all 1.0s ease;
+            transition:all 1.0s ease;
+            transition:all 1.0s ease;
+        }
+            nav {
+            float: left;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: #3b5a77;
+            position: fixed;
+            padding-left: 30px;
+            }
+  
+        </style>
+    </head>
+    <body>
+        <nav class="nav">
+            <h2 class="heading">{{tn}}</a></h2>
+        </nav>
+        <div class="container">
+            {% for i in res %}
+                <div class="box">
+                   <p><a href=/details/{{i['external_references'][0]['external_id']}}>{{i['name']}}</a></p>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
